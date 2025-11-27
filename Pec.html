@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEC CBTis 67 | Conduce Más Seguro</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/1fbdcf4cf2.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* === ESTILOS GENERALES Y RESPONSIVIDAD MEJORADA === */
+    :root {
+      --color-primary: #004aad; /* Azul Oscuro */
+      --color-secondary: #0099cc; /* Azul Claro */
+      --color-accent: #ffcc00; /* Amarillo/Dorado */
+      --color-background: #f4f8fc;
+      --color-light: #ffffff;
+      --color-shadow: rgba(0,0,0,0.1);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--color-background);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    main {
+      max-width: 1200px; /* Limita el ancho en pantallas muy grandes */
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* === HEADER Y NAVEGACIÓN === */
+    header {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: var(--color-light);
+      text-align: center;
+      padding: 50px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header img {
+      width: 120px; /* Aumentado */
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255,255,255,0.8);
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      font-size: clamp(1.8em, 5vw, 2.8em); /* Título responsivo */
+      margin: 10px 0 5px 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      background-color: #003d82;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap; /* Permite que los enlaces se envuelvan en móviles */
+      padding: 10px 0;
+      box-shadow: 0 2px 5px var(--color-shadow);
+    }
+
+    nav a {
+      color: var(--color-light);
+      text-decoration: none;
+      padding: 10px 15px; /* Padding ajustado */
+      margin: 4px 10px;
+      font-weight: 500;
+      transition: background-color 0.3s, color 0.3s;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background-color: var(--color-primary);
+      color: var(--color-accent);
+      transform: none; /* Quitamos la escala para un hover más limpio */
+    }
+
+    /* === SECCIONES Y CONTENEDORES (Card Style) === */
+    section {
+      padding: 30px 5%; /* Menos padding en móviles */
+      background: var(--color-light);
+      margin: 25px 0;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15); /* Sombra más profunda */
+      transition: transform 0.3s;
+    }
+
+    section:hover {
+        transform: translateY(-5px);
+    }
+
+    section h2 {
+      color: var(--color-primary);
+      border-bottom: 3px solid var(--color-accent);
+      padding-bottom: 8px;
+      margin-bottom: 25px;
+      font-size: clamp(1.5em, 4vw, 2.2em);
+      font-weight: 700;
+    }
+
+    /* === LISTAS DE RECOMENDACIONES (Mejorado) === */
+    ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 o 3 columnas en desktop */
+      gap: 15px;
+    }
+
+    ul li {
+      background: var(--color-background);
+      margin: 0; /* Quitamos margen si usamos gap */
+      padding: 15px;
+      border-left: 5px solid var(--color-primary);
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      line-height: 1.4;
+    }
+
+    ul li i {
+        color: var(--color-accent);
+        font-size: 1.5em;
+        margin-right: 15px;
+    }
+
+    ul li:hover {
+      background: #e3efff;
+    }
+
+    /* === GALERÍA (Mejorado) === */
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .galeria img {
+      width: 100%; /* Ajuste crucial para responsividad */
+      height: auto;
+      aspect-ratio: 4/3; /* Mantiene una proporción visual */
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    /* === VIDEOS (RESPONSIVE) === */
+    .video-contenedor {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .video-responsive {
+        position: relative;
+        padding-bottom: 56.25%; /* Relación 16:9 */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        margin: 20px auto;
+        border-radius: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    .video-responsive iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 60%;
+        border: none;
+    }
+    .video-contenedor h3 {
+        color: #555;
+        font-weight: 400;
+        margin-top: 10px;
+    }
+
+    /* === FORMULARIOS (Mejorado) === */
+    form label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: var(--color-primary);
+    }
+    form input[type="text"],
+    form input[type="email"],
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box; /* Incluye padding en el ancho */
+      transition: border-color 0.3s;
+    }
+    form input:focus, form select:focus, form textarea:focus {
+        border-color: var(--color-accent);
+        outline: none;
+    }
+    form button[type="submit"] {
+        background-color: var(--color-primary);
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s;
+    }
+    form button[type="submit"]:hover {
+        background-color: #0066d4;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background-color: #003d82;
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    /* === ESTADÍSTICAS / DATOS DUROS === */
+    .datos-duros {
+      background: #fff3cd; /* Fondo de alerta amarillo claro */
+      color: #664d03;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid var(--color-accent);
+      margin-bottom: 25px;
+    }
+    .datos-duros strong {
+        color: var(--color-primary);
+        font-size: 1.1em;
+    }
+    .datos-duros h3 {
+        color: #664d03;
+        font-size: 1.4em;
+        margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="Lcbtis.png" alt="Logo CBTis 67">
+    <h1>Proyecto PEC - CBTis No. 67</h1>
+    <p>“Conduce Más Seguro” - Fomentando la cultura vial en Misantla, Veracruz</p>
+  </header>
+
+  <nav>
+    <a href="#objetivo"><i class="fas fa-bullseye"></i> Objetivo</a>
+    <a href="#estadisticas"><i class="fas fa-exclamation-triangle"></i> Datos Duros</a>
+    <a href="#distracciones"><i class="fas fa-mobile-alt"></i> Distracciones</a>
+    <a href="#recomendaciones"><i class="fas fa-car"></i> Recomendaciones</a>
+    <a href="#galeria"><i class="fas fa-images"></i> Galería</a>
+    <a href="#encuesta"><i class="fas fa-poll"></i> Encuesta</a>
+    <a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a>
+  </nav>
+
+<main>
+
+  <section id="objetivo">
+    <h2>Objetivo del Proyecto</h2>
+    <p>
+      El proyecto <strong>“CBTis.67 Conduce Más Seguro”</strong> busca fomentar una cultura vial responsable entre los jóvenes de Misantla, Veracruz. 
+      A través de talleres, campañas informativas y simulaciones de conducción segura, se pretende reducir los accidentes de tránsito causados por imprudencia o desconocimiento de las normas.
+    </p>
+    <div class="video-contenedor"> 
+        <div class="video-responsive"> 
+            <iframe
+                src="https://www.youtube.com/embed/0IQ64rzUuHA" 
+                title="Video sobre Conducción Segura y Normas Viales" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <h3>Video: La Importancia de la Conducción Segura</h3>
+    </div>
+  </section>
+
+  <section id="estadisticas">
+    <h2>¿Por qué es importante? Datos que Salvan Vidas</h2>
+    <div class="datos-duros">
+        <h3>Panorama Nacional de Accidentes Viales</h3>
+        <p>Los accidentes de tránsito en México son la **primera causa de fallecimiento** en jóvenes de entre **15 y 29 años** de edad. Esto subraya la urgencia de la educación vial entre la población estudiantil.</p>
+        <ul>
+            <li><i class="fas fa-skull-crossbones"></i> Se estima que en promedio **22 jóvenes mueren diariamente** a causa de siniestros viales en el país.</li>
+            <li><i class="fas fa-percentage"></i> Entre el **40% y el 60%** de los incidentes mortales están directamente relacionados con el **consumo de bebidas alcohólicas**.</li>
+            <li><i class="fas fa-clock"></i> Los accidentes con participación de jóvenes ocurren principalmente durante el **fin de semana** (jueves a domingo) y en la madrugada.</li>
+        </ul>
+        <p>Tomar decisiones responsables al volante es la forma más directa de cambiar estas estadísticas.</p>
+    </div>
+  </section>
+
+  <section id="distracciones">
+    <h2>Tipos de Distracción al Volante: El Peligro Silencioso</h2>
+    <p>Cualquier actividad que desvíe tu atención de la carretera, incluso por un segundo, es una distracción y aumenta el riesgo de choque. Se clasifican en tres tipos:</p>
+    <ul>
+      <li>
+        <i class="fas fa-eye-slash"></i> 
+        <div>
+            <strong>Visual:</strong> Apartar la vista de la carretera. (Ejemplo: mirar el celular o un accidente).
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-hand-paper"></i> 
+        <div>
+            <strong>Manual o Física:</strong> Quitar las manos del volante. (Ejemplo: comer, maquillarse o manipular la radio).
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-brain"></i> 
+        <div>
+            <strong>Cognitiva:</strong> Dejar de pensar en la conducción. (Ejemplo: hablar por teléfono, preocuparse o ir pensando en pendientes).
+        </div>
+      </li>
+    </ul>
+    <p style="margin-top: 20px;">**Dato clave:** Enviar o leer un texto te quita la vista de la carretera durante 5 segundos, lo que a velocidad de autopista es como conducir la longitud de un campo de fútbol con los ojos cerrados.</p>
+  </section>
+
+
+  <section id="recomendaciones">
+    <h2>Recomendaciones para Conducir Seguro</h2>
+    <ul>
+      <li><i class="fas fa-shield-alt"></i> Usa siempre cinturón de seguridad o casco protector, tú y todos tus pasajeros.</li>
+      <li><i class="fas fa-mobile-alt"></i> **Guarda el celular:** Evita toda distracción, especialmente el uso de dispositivos móviles.</li>
+      <li><i class="fas fa-road"></i> Respeta los límites de velocidad y las señales de tránsito.</li>
+      <li><i class="fas fa-wine-bottle"></i> Nunca manejes bajo los efectos del alcohol o drogas; designa un conductor.</li>
+      <li><i class="fas fa-tools"></i> Revisa periódicamente frenos, llantas y luces de tu vehículo.</li>
+      <li><i class="fas fa-bed"></i> Descansa bien antes de un viaje largo para evitar la fatiga al volante.</li>
+      <li><i class="fas fa-walking"></i> Prioriza y cuida siempre a peatones, ciclistas y motociclistas.</li>
+    </ul>
+  </section>
+
+  <section id="impacto">
+    <h2>Impacto en la Comunidad</h2>
+    <p>
+      Misantla, Veracruz, cuenta con una población activa y en constante movimiento. Este proyecto involucra a estudiantes, docentes y autoridades municipales, generando conciencia vial.
+    </p>
+    <p>
+      Se proyecta una reducción del 30% en accidentes viales entre jóvenes y un aumento significativo en el uso del cinturón de seguridad y el casco.
+    </p>
+  </section>
+
+  <section id="galeria">
+    <h2>Galería del Proyecto</h2>
+    <p>Imágenes de nuestras campañas y talleres en el CBTis No. 67 (Asegúrate de tener estos archivos en tu carpeta).</p>
+    <div class="galeria">
+      <img src="Cbtis1.jpg" alt="Taller de Conciencia Vial 1">
+      <img src="Cbtis2.jpg" alt="Taller de Conciencia Vial 2">
+      <img src="Cbtis3.jpg" alt="Taller de Conciencia Vial 3">
+      <img src="Cbtis4.jpg" alt="Taller de Conciencia Vial 4">
+      <img src="Cbtis5.jpg" alt="Taller de Conciencia Vial 5">
+      <img src="Cbtis6.jpg" alt="Taller de Conciencia Vial 6">
+      <img src="Cbtis8.jpg" alt="Taller de Conciencia Vial 7">
+    </div>
+  </section>
+
+  
+  <section id="VideoRecomendado">
+    <h2>Video Recomendado: Líneas y Señales de Tránsito</h2>
+    <div class="video-contenedor"> 
+        <div class="video-responsive"> 
+            <iframe 
+                src="https://www.youtube.com/embed/HQQzRxjqH3A" 
+                title="Señales de Tránsito" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <h3>Aprende a interpretar las señales de la carretera</h3>
+    </div>
+</section>
+
+
+<section id="encuesta">
+  <h2>Encuesta: ¿Qué tan seguro conduces?</h2>
+  <p>Responde esta breve encuesta y reflexiona sobre tus hábitos al conducir o al viajar como pasajero.</p>
+
+  <form id="formEncuesta" onsubmit="mostrarResultados(event)">
+    <label>1. ¿Usas siempre el cinturón de seguridad?</label><br>
+    <input type="radio" name="cinturon" value="Sí" required> Sí<br>
+    <input type="radio" name="cinturon" value="A veces"> A veces<br>
+    <input type="radio" name="cinturon" value="No"> No<br><br>
+
+    <label>2. ¿Qué consideras más importante al conducir?</label><br>
+    <select name="prioridad" required>
+      <option value="">Selecciona una opción</option>
+      <option value="Respeto a las señales">Respeto a las señales</option>
+      <option value="Evitar distracciones">Evitar distracciones</option>
+      <option value="Revisar el vehículo">Revisar el vehículo</option>
+      <option value="Ser puntual">Ser puntual</option>
+    </select><br><br>
+
+    <label>3. ¿Qué medio de transporte usas con más frecuencia?</label><br>
+    <input type="checkbox" name="transporte" value="Auto"> Auto<br>
+    <input type="checkbox" name="transporte" value="Moto"> Moto<br>
+    <input type="checkbox" name="transporte" value="Bicicleta"> Bicicleta<br>
+    <input type="checkbox" name="transporte" value="Transporte público"> Transporte público<br><br>
+
+    <button type="submit">Enviar respuestas</button>
+  </form>
+
+  <p id="resultadoEncuesta" style="margin-top:15px; font-weight:bold; color:var(--color-primary);"></p>
+
+  <script>
+    function mostrarResultados(event) {
+      event.preventDefault();
+      const form = document.getElementById('formEncuesta');
+      const cinturon = form.cinturon.value;
+      const prioridad = form.prioridad.value;
+      
+      if (!cinturon || !prioridad) {
+           document.getElementById('resultadoEncuesta').innerText = "Por favor, completa todas las preguntas obligatorias.";
+           document.getElementById('resultadoEncuesta').style.color = 'red';
+           return;
+      }
+      
+      document.getElementById('resultadoEncuesta').innerText =
+        `Tu respuesta indica que valoras "${prioridad}" y tu uso del cinturón es: ${cinturon}. ¡Excelente reflexión!`;
+      document.getElementById('resultadoEncuesta').style.color = 'var(--color-primary)';
+      
+      // Aquí se podría enviar la data a un servicio externo si fuera necesario, pero por ahora solo se muestra
+    }
+  </script>
+</section>
+
+<section id="formulario-participacion">
+  <h2>Participa en el Proyecto</h2>
+  <p>Si te gustaría unirte o aportar ideas para mejorar la seguridad vial en Misantla, completa este formulario:</p>
+
+  <form id="formContacto" onsubmit="enviarMensaje(event)">
+    <label for="nombre">Nombre completo:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="correo">Correo electrónico:</label><br>
+    <input type="email" id="correo" name="correo" required><br><br>
+
+    <label for="mensaje">Tu propuesta o comentario:</label><br>
+    <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="respuesta" style="color:green; font-weight:bold; margin-top:10px;"></p>
+
+  <script>
+    function enviarMensaje(event) {
+      event.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      
+      // En un sitio estático, solo mostramos un mensaje de confirmación
+      document.getElementById('respuesta').innerText =
+        `¡Gracias, ${nombre}! Tu mensaje ha sido recibido. Nos pondremos en contacto pronto.`;
+      document.getElementById('respuesta').style.color = 'green';
+      document.getElementById('formContacto').reset();
+    }
+  </script>
+</section>
+
+<section id="informacion-complementaria">
+  <h2>Información Complementaria</h2>
+  <p>
+    Conducir con responsabilidad no solo protege tu vida, también la de quienes te rodean.  
+    En México, los accidentes de tránsito son una de las principales causas de muerte entre jóvenes.  
+    Por eso, el CBTis No. 67 promueve campañas de concientización que incluyen:
+  </p>
+  <ul>
+    <li><i class="fas fa-comments"></i> Charlas informativas con expertos en educación vial.</li>
+    <li><i class="fas fa-desktop"></i> Simulaciones de conducción segura y realidad virtual.</li>
+    <li><i class="fas fa-bullhorn"></i> Campañas visuales en redes sociales y en la escuela.</li>
+    <li><i class="fas fa-palette"></i> Concursos de carteles sobre seguridad vial.</li>
+  </ul>
+  <p>
+    Recordemos que manejar con precaución no solo es una obligación, sino un acto de respeto hacia los demás.  
+    <strong>¡Conduce más seguro, piensa en tu futuro!</strong>
+  </p>
+</section>
+
+</main>
+
+  <footer id="contacto">
+    <p><strong>CBTis No. 67 - Misantla, Veracruz</strong></p>
+    <p>Proyecto PEC: “Conduce Más Seguro”</p>
+    <p>Contacto: <a href="mailto:cbtis67.misantla@dgeti.sep.gob.mx">cbtis67.misantla@dgeti.sep.gob.mx</a></p>
+    <p>&copy; 2025 - Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
